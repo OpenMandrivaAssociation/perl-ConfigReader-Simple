@@ -11,6 +11,7 @@ Summary:    Read simple configuration file formats
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/ConfigReader/%{upstream_name}-%{upstream_version}.tar.gz
 
+BuildRequires: perl(Test::Output)
 BuildRequires: perl(Test::Warn)
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
