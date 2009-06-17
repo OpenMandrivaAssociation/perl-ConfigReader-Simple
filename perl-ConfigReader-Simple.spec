@@ -1,21 +1,19 @@
+%define upstream_name    ConfigReader-Simple
+%define upstream_version 1.28
 
-%define realname   ConfigReader-Simple
-%define version    1.27
-%define release    %mkrel 1
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
+License:    GPL+ or Artistic
 Group:      Development/Perl
 Summary:    Read simple configuration file formats
-Source:     http://www.cpan.org/modules/by-module/ConfigReader/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
-BuildRequires: perl(Test::Warn)
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/ConfigReader/%{upstream_name}-%{upstream_version}.tar.gz
 
+BuildRequires: perl(Test::Warn)
 BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 'ConfigReader::Simple' reads and parses simple configuration files. It is
@@ -34,7 +32,7 @@ The configuration file format
     line, including any other whitespace.
 
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -52,7 +50,7 @@ rm -rf %buildroot
 
 %files
 %defattr(-,root,root)
-%doc Changes README LICENSE README
+%doc Changes README LICENSE
 %{_mandir}/man3/*
 %perl_vendorlib/*
 
