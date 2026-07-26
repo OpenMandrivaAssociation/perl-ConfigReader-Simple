@@ -1,15 +1,13 @@
 %define upstream_name    ConfigReader-Simple
-%define upstream_version 1.28
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	6
+Version:	1.28
+Release:	7
 
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Summary:	Read simple configuration file formats
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/ConfigReader/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/ConfigReader/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -34,7 +32,7 @@ The configuration file format
     line, including any other whitespace.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -64,8 +62,7 @@ make test
 + Revision: 386764
 - adding missing buildrequires:
 - update to 1.28
-- using %%perl_convert_version
-- fix license
+- using %1.28 fix license
 
 * Sat Sep 06 2008 Jérôme Quelin <jquelin@mandriva.org> 1.27-1mdv2009.0
 + Revision: 281793
